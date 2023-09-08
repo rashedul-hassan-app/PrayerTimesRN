@@ -1,119 +1,63 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
+import React from "react";
 
-import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { View, Text, SafeAreaView, StyleSheet } from "react-native";
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
-
-function App(): JSX.Element {
-  console.log('hello from Rashedul');
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
-  return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
+const App = () => {
+	return (
+		<SafeAreaView style={styles.safeArea}>
+      <Text style={styles.heading}>Here are some boxes of different colours</Text>
+        <View style={[styles.cyan, styles.box ]}>
+          <Text style={styles.text}>Cyan</Text>
         </View>
-      </ScrollView>
-    </SafeAreaView>
-  );
-}
+        <View style={[ styles.blue, styles.box ]}>
+          <Text style={styles.text}>Cyan</Text>
+        </View>
+        <View style={[  styles.magenta, styles.box ]}>
+          <Text style={styles.text}>Cyan</Text>
+        </View>
+        <View style={[  styles.orange, styles.box ]}>
+          <Text style={styles.text}>Cyan</Text>
+        </View>
+		</SafeAreaView>
+	);
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  heading: {
+    fontWeight: 'bold',
+    margin: 10
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  box: {
+    padding: 10,
+    borderRadius: 3,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 5
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  text: {
+    color: 'white'
   },
-  highlight: {
-    fontWeight: '700',
+  container: {
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    // flex: 1,
+  },
+  safeArea: {
+    flex: 2,
+  },
+  cyan: {
+    padding: 10,
+    backgroundColor: 'cyan',
+    color: 'white'
+  },
+  blue: {
+    backgroundColor: '#268bd2'
+  },
+  magenta: {
+    backgroundColor: '#d33682'
+  },
+  orange: {
+    backgroundColor: '#cb4b16'
   },
 });
-
 export default App;
